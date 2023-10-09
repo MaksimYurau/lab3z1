@@ -49,7 +49,7 @@ int main() {
 
     // Добавляем элемент в произвольную позицию (после первого элемента)
     intList.addElement(4, 1);
-  
+
     // Добавляем элементы в конец
     intList.addElement(8, 2);
     intList.addElement(7, 3);
@@ -79,22 +79,22 @@ int main() {
     }
     std::cout << std::endl;
 
-    //// Создаем DRList с элементами типа string
-    //containers::DRList<std::string> stringList;
+    // Создаем DRList с элементами типа string
+    containers::DRList<std::string> stringList;
 
-    //// Добавляем элементы в конец
-    //stringList.addElement("Hello", -1);
-    //// stringList.addElement("World", 1);
+    // Добавляем элементы в конец
+    stringList.addElement("Hello", 0);
+    stringList.addElement("World", 1);
 
-    //// Копируем список
+    // Копируем список
     //containers::DRList<std::string> copiedStringList = stringList;
 
-    //// Выводим элементы
-    //std::cout << "String List: ";
-    //for (int i = 0; i < copiedStringList.getSize(); ++i) {
-    //    std::cout << copiedStringList[i] << " ";
-    //}
-    
+    // Выводим элементы
+    std::cout << "String List: ";
+    for (int i = 0; i < stringList.getSize(); ++i) {
+        std::cout << stringList[i] << " ";
+    }
+
     std::cout << std::endl;
 
     system("pause");
