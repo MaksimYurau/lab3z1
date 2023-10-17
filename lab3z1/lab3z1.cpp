@@ -95,7 +95,37 @@ int main() {
         std::cout << stringList[i] << " ";
     }
 
+    std::cout << std::endl << std::endl;
+
+    // Создаём DRList с элементами типа int
+    containers::DRList<int> intList2 = { 1, 3, 5, 7 };
+
+    // Выводим элементы 
+    std::cout << "Int List: ";
+    for (int i = 0; i < intList2.getSize(); ++i) {
+        std::cout << intList2[i] << " ";
+    }
     std::cout << std::endl;
+
+    // Создаём DRList с элементами типа double
+    containers::DRList<double> doubleList2 = { 1, 2, 6, 8 };
+
+    // Выводим элементы 
+    std::cout << "Double List: ";
+    for (int i = 0; i < doubleList2.getSize(); ++i) {
+        std::cout << doubleList2[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Создаём DRList с элементами типа std::string
+    containers::DRList<std::string> stringList2 = { "Hello", "world"};
+
+    // Выводим элементы 
+    std::cout << "std::string List: ";
+    for (int i = 0; i < stringList2.getSize(); ++i) {
+        std::cout << stringList2[i] << " ";
+    }
+    std::cout << std::endl << std::endl;
 
     system("pause");
     return 0;

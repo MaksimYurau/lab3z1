@@ -22,8 +22,10 @@ namespace containers {
 
         // Конструктор от std::initializer_list<T>
         DRList(std::initializer_list<T> initList) : head(nullptr), size(0) {
+            size_t i = 0;
             for (const T& element : initList) {
-                addElement(element);
+                addElement(element, i);
+                i++;
             }
         }
 
