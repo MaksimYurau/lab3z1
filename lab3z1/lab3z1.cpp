@@ -39,9 +39,14 @@ NameClass не должно иметь возможности создания �
 #include <iostream>
 #include <string>
 #include "DRList.h"
+#include <vector>
+
+containers::DRList<int> foo(containers::DRList<int> x) {
+    return x;
+}
 
 int main() {
-    // Создаем DRList с элементами типа int
+    // Создаём DRList с элементами типа int
     containers::DRList<int> intList;
 
     // Добавляем элементы в начало
@@ -64,7 +69,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    // Создаем DRList с элементами типа double
+    // Создаём DRList с элементами типа double
     containers::DRList<double> doubleList;
 
     // Добавляем элементы в конец
@@ -79,18 +84,15 @@ int main() {
     }
     std::cout << std::endl;
 
-    // Создаем DRList с элементами типа string
+    // Создаём DRList с элементами типа string
     containers::DRList<std::string> stringList;
 
     // Добавляем элементы в конец
     stringList.addElement("Hello", 0);
     stringList.addElement("World", 1);
 
-    // Копируем список
-    //containers::DRList<std::string> copiedStringList = stringList;
-
     // Выводим элементы
-    std::cout << "String List: ";
+    std::cout << "std::string List: ";
     for (int i = 0; i < stringList.getSize(); ++i) {
         std::cout << stringList[i] << " ";
     }
@@ -126,6 +128,26 @@ int main() {
         std::cout << stringList2[i] << " ";
     }
     std::cout << std::endl << std::endl;
+
+    // Конструктор копирования (intList -> intListCopy)
+    containers::DRList<int> intListCopy{ intList };
+    std::cout << std::endl;
+    std::cout << "Copy constructor (int): ";
+    for (int i = 0; i < intListCopy.getSize(); ++i)
+    {
+        std::cout << intListCopy[i] << " ";
+    }
+    
+    std::cout << std::endl << std::endl;
+
+    // Конструктор перемещения (intListMoveTest -> intListMove)
+    containers::DRList<int> intListMoveTest{ 1, 9, 6, 8 };
+
+    containers::DRList<int> intListMoveTest1;
+
+    intListMoveTest1 = foo(intListMoveTest);
+
+    std::cout << std::endl;
 
     system("pause");
     return 0;

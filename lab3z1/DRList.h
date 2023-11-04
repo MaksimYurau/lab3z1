@@ -3,15 +3,6 @@
 #include <iostream>
 #include <fstream>
 
-//// Перегрузка оператора << для вывода элементов DRList<string>
-//template <typename T>
-//std::ostream& operator<<(std::ostream& os, const containers::DRList<T>& list) {
-//    for (int i = 0; i < list.getSize(); ++i) {
-//        os << list[i] << " ";
-//    }
-//    return os;
-//}
-
 namespace containers {
     template <typename T>
     class DRList {
@@ -32,8 +23,10 @@ namespace containers {
         // Конструктор копирования
         DRList(const DRList<T>& other) : head(nullptr), size(0) {
             Node* otherCurrent = other.head;
-            while (otherCurrent) {
-                addElement(otherCurrent->value);
+            size_t i = 0;
+            for (int j = 0; j < other.getSize(); j++) {
+                addElement(otherCurrent->value, i);
+                i++;
                 otherCurrent = otherCurrent->next;
             }
         }
@@ -46,10 +39,14 @@ namespace containers {
 
             clear();
             Node* otherCurrent = other.head;
-            while (otherCurrent) {
-                addElement(otherCurrent->value);
+
+            size_t i = 0;
+            for (int j = 0; j < other.getSize(); j++) {
+                addElement(otherCurrent->value, i);
+                i++;
                 otherCurrent = otherCurrent->next;
             }
+
             return *this;
         }
 
